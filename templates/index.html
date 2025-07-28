@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Steganography App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="description" content="A secure steganography web application using AES-256 encryption and SHA-256 hashing.">
+    <meta name="keywords" content="steganography, AES-256, SHA-256, encryption, secure, web application">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="dark-theme">
+    <div class="background-overlay"></div>
+
+    <div class="container">
+        <div class="header">
+            <div class="cyber-line"></div>
+            <h1>Secure Steganography App</h1>
+            <div class="author">By SOUVIK DEY</div>
+            <div class="cyber-line"></div>
+        </div>
+
+        <div class="main-content">
+            <div class="encode-section">
+                <div class="section-header">
+                    <img src="{{ url_for('static', filename='images/encryption.png') }}" alt="Encryption" class="section-icon">
+                    <h2>Encode Message</h2>
+                </div>
+                <form id="encodeForm" action="/encode" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="imageInput">Select Image:</label>
+                        <input type="file" id="imageInput" name="imageInput" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="messageInput">Enter Message:</label>
+                        <input type="text" id="messageInput" name="messageInput" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordInput">Enter Password:</label>
+                        <input type="password" id="passwordInput" name="passwordInput" required>
+                    </div>
+                    <button type="submit" class="glow-button">Encode</button>
+                </form>
+            </div>
+
+            <div class="decode-section">
+                <div class="section-header">
+                    <img src="{{ url_for('static', filename='images/decryption.png') }}" alt="Decryption" class="section-icon">
+                    <h2>Decode Message</h2>
+                </div>
+                <form id="decodeForm" action="/decode" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="encodedImageInput">Select Encoded Image:</label>
+                        <input type="file" id="encodedImageInput" name="encodedImageInput" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="decodePasswordInput">Enter Password:</label>
+                        <input type="password" id="decodePasswordInput" name="passwordInput" required>
+                    </div>
+                    <button type="submit" class="glow-button">Decode</button>
+                </form>
+            </div>
+
+            <div id="decodedMessage" class="message-container"></div>
+        </div>
+
+        <div class="social-links" style="align-items: center;">
+            <h3>Social links</h3>
+            <a href="https://github.com/souvik-dey-28" target="_blank" class="social-link">
+                <img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub" class="social-icon">
+            </a>
+            <a href="https://www.linkedin.com/in/souvik-dey-hacker" target="_blank" class="social-link">
+                <img src="{{ url_for('static', filename='images/linkedin.png') }}" alt="LinkedIn" class="social-icon">
+            </a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
